@@ -27,21 +27,6 @@ import junit.framework.TestCase;
 
 public class JSONTest extends TestCase
 {
-	public void testException() throws Exception {
-		MyException e = new MyException("001", "AAAAAAAA");
-		
-		StringWriter writer = new StringWriter();
-		JSON.json(e, writer);
-		String json = writer.getBuffer().toString();
-		System.out.println(json);
-		// Assert.assertEquals("{\"code\":\"001\",\"message\":\"AAAAAAAA\"}", json);
-		
-		StringReader reader = new StringReader(json);
-		MyException result = JSON.parse(reader, MyException.class);
-		Assert.assertEquals("001", result.getCode());
-		Assert.assertEquals("AAAAAAAA", result.getMessage());
-	}
-
 	@SuppressWarnings("unchecked")
 	public void testMap() throws Exception {
 		Map<String, String> map = new HashMap<String, String>();
